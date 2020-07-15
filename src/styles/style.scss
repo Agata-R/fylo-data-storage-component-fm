@@ -1,8 +1,90 @@
 @import "_vars.scss";
 @import "_basic.scss";
 
-.box{
 
+body{
+  background-image: url('././images/bg-mobile.png');
+}
+.main{
+  width: $mobileWidth;
+}
+.box{
+  padding: $gap * 2;
+  background-color: $boxBg;
+  border-radius: $gap;
+  &_main{
+    border-top-right-radius: 100px;
+  }
+}
+.icons{
+  display: flex;
+  padding-top: $gap * 2;
+  &_link{
+    background-color: $veryDarkBlue;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & + .icons_link{
+      margin-left: $gap;
+    }
+  }
+}
+.progress{
+  height: 18px;
+  background-color: $veryDarkBlue;
+  border-radius: 10px;
+  width: 100%;
+  padding: 2px;
+  &_bar{
+    background-color: nth($gradient, 2);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, nth($gradient, 1) 0%, nth($gradient, 2) 100%);
+    border-radius: 10px;
+    width: 70%;
+    height: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-end;
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: $paleBlue;
+    }
+  }
+  &_desc{
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    font-size: .9em;
+    padding-top: $gap / 2;
+  }
+}
+
+.cloud{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $radius;
+  padding: $gap / 2;
+  text-transform: uppercase;
+  font-weight: 700;
+  > * {
+    padding: 0 5px;
+  }
+  .number{
+    color: $darkBlue;
+    font-size: 3em;
+  }
+  .label{
+    color: $grayishBlue;
+    font-size: .9em;
+    letter-spacing: 1px;
+  }
 }
 .attribution{
   padding: $gap * 2;

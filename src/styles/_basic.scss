@@ -1,5 +1,5 @@
 *, *::before, *::after{
-  background-origin: border-box;
+  box-sizing: border-box;
 }
 
 html, body, .content{
@@ -31,12 +31,4 @@ a{
 }
 .footer {
   grid-area: footer;
-}
-.btn{
-  cursor: pointer;
-  border: none;
-  outline: none;
-  &:hover,&:focus{
-    
-  }
 }
