@@ -12,14 +12,10 @@ body{
   }
 }
 .main{
-  width: $mobileWidth;
   display: grid;
-  gap: 16px;
-  grid-template-columns: [start] auto [one] 180px [two] auto [end];
-  grid-template-rows: [start] auto [one] auto [two] 36px [tree] 16px [end];
+  grid-template-columns: [start] 73px [one] 180px [two] 73px [end];
+  grid-template-rows: [start] 200px [one] 16px [two] 124px [tree] 36px[four] 36px [end];
   @media(min-width: $desktopBreak){
-    gap: 0;
-    width: auto;
     grid-template-columns: [start] 350px [one] 30px [two] 320px [tree] 180px [four] 40px [end];
     grid-template-rows: [start] 48px [one] 25px [two] 129px [end];
   }
@@ -43,7 +39,7 @@ body{
   &_storage{
     padding: 32px 32px 50px;
     grid-column: start / end;
-    grid-row: one / tree;
+    grid-row: two / four;
     p{
       margin: 0 14px 14px;
       letter-spacing: .1px;
@@ -119,7 +115,7 @@ body{
   @extend %center;
 
   grid-column: one / two;
-  grid-row: two / end;
+  grid-row: tree / end;
   @media(min-width: $desktopBreak){
     grid-column: tree / four;
     grid-row: start / two;
