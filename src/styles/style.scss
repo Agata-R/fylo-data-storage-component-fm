@@ -3,7 +3,13 @@
 
 body{
   background-image: url('../images/bg-mobile.png');
-  background-size: cover;
+  background-position: center bottom 98px; // place bg aboce footer
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media(min-width: $desktopBreak){
+    background-image: url('../images/bg-desktop.png');
+  }
 }
 .main{
   width: $mobileWidth;
@@ -11,25 +17,46 @@ body{
   gap: 16px;
   grid-template-columns: [start] auto [one] 180px [two] auto [end];
   grid-template-rows: [start] auto [one] auto [two] 36px [tree] 16px [end];
+  @media(min-width: $desktopBreak){
+    gap: 0;
+    width: auto;
+    grid-template-columns: [start] 350px [one] 30px [two] 320px [tree] 180px [four] 40px [end];
+    grid-template-rows: [start] 48px [one] 25px [two] 129px [end];
+  }
 }
 .box{
   padding: 40px;
   background-color: $boxBg;
   border-radius: $radius;
+  @media(min-width: $desktopBreak){
+    box-shadow: 0px 60px 60px -30px transparentize($veryDarkBlue, 0.5);
+  }
   &_main{
+    border-top-right-radius: 100px;
     grid-column: start / end;
     grid-row: start / one;
-
-    border-top-right-radius: 100px;
+    @media(min-width: $desktopBreak){
+      grid-column: start / one;
+      grid-row: start / end;
+    }
   }
   &_storage{
+    padding: 32px 32px 50px;
     grid-column: start / end;
     grid-row: one / tree;
-
-    padding: 32px 32px 50px;;
     p{
       margin: 0 14px 14px;
+      letter-spacing: .1px;
     }
+    @media(min-width: $desktopBreak){
+      padding: 40px 38px;
+      grid-column: two / end;
+      grid-row: one / end;
+      p{
+        margin: 0 0 12px;
+      }
+    }
+
   }
 }
 .icons{
@@ -54,10 +81,6 @@ body{
   border-radius: 10px;
   width: 100%;
   padding: 3px;
-  p{
-    margin-top: 0;
-    letter-spacing: .1px;
-  }
   &_bar{
     background-color: nth($gradient, 2);
     background: linear-gradient(90deg, nth($gradient, 1) 0%, nth($gradient, 2) 100%);
@@ -80,20 +103,43 @@ body{
     justify-content: space-between;
     font-size: .87em;
     padding-top: 8px;
+    @media(min-width: $desktopBreak){
+      padding-top: 6px;
+    }
   }
 }
 
 .cloud{
+  position: relative;
   background-color: #fff;
   border-radius: $radius;
   text-transform: uppercase;
   font-weight: 700;
   height: 72px;
+  @extend %center;
 
   grid-column: one / two;
   grid-row: two / end;
+  @media(min-width: $desktopBreak){
+    grid-column: tree / four;
+    grid-row: start / two;
 
-  @extend %center;
+    border-bottom-right-radius: 0;
+
+    &::after{
+      content: "";
+      display: flex;
+      position: absolute;
+      right: 0;
+      bottom: -22px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 11px;
+      border-color: #fff #fff transparent transparent;
+
+    }
+  }
 
   > * {
     padding: 0 5px;
