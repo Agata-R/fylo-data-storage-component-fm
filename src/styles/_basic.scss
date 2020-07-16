@@ -32,3 +32,9 @@ a{
 .footer {
   grid-area: footer;
 }
+
+%center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
